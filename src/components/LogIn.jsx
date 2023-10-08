@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Redirect, Router, Link } from 'react-router-dom';
 import Pets from './Pets';
 
-const LogIn = () => {
+const LogIn = (props) => {
 
 
   const userRef = useRef();
@@ -22,10 +22,12 @@ const handleSubmit = async (e) =>{
       localStorage.setItem('token',res.data.password)
      
     })
+  props.history.replace('/pets')
 
 }
   return (
     <>
+
       <form action="POST" onSubmit={handleSubmit}>
         <label htmlFor='username'>Username</label>
         <input id='username' ref={userRef} />
@@ -37,6 +39,7 @@ const handleSubmit = async (e) =>{
         
       </form>
       
+   
     </>
   )
 }

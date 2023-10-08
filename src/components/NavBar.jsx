@@ -13,10 +13,13 @@ const NavBar = () => {
             </Link>
             
             }
-            <Link to="/login">
+            {localStorage.getItem('token')?null:
+
+                <Link to="/login">
             <li>Register</li>
                 
             </Link>
+            }
             <Link to="/app">
             <li>Applications</li>
             
