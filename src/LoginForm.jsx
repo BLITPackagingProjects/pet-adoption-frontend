@@ -41,10 +41,6 @@ const defaultTheme = createTheme();
 
 export default function SignInSide() {
 
-  
-
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
