@@ -35,9 +35,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 
-export default function LoginForm() {
-
-  const navigate = useNavigate();
+export default function SignInSide() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
