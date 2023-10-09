@@ -11,13 +11,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import backgroundImage from './assets/images/andrew-s-ouo1hbizWwo-unsplash.jpg';
+// import backgroundImage from './assets/images/andrew-s-ouo1hbizWwo-unsplash.jpg';
 import axios from 'axios';
-
-
-
-
-
+import {useNavigate} from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -39,20 +35,18 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 
-export default function SignInSide() {
+export default function LoginForm() {
 
-  
-
-
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     try {
-      const response = await axios.post('http://localhost:8080/auth/signin', {
+      const response = await axios.post('http://localhost:9090/auth/signin', {
         usernameOrEmail: data.get('usernameOrEmail'),
         password: data.get('password'),
-      });
+      }).then(()=> navigate('views'));
   
       // Handle the API response here, e.g., set user state or redirect to a dashboard.
       console.log('Sign-in successful!', response.data);
@@ -73,7 +67,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: `url(${backgroundImage})`,
+            //  backgroundImage: `url(${backgroundImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

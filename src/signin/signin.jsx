@@ -1,8 +1,9 @@
+/* eslint-disable no-useless-catch */
 import axios from 'axios';
 
 const signIn = async (email, password) => {
   try {
-    const response = await axios.post('http://localhost:8080/auth/signin', {
+    const response = await axios.post('http://localhost:9090/auth/signin', {
       email: email,
       password: password,
     });
