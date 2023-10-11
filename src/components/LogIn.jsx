@@ -1,7 +1,5 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import axios from 'axios'
-import { Redirect, Router, Link } from 'react-router-dom';
-import Pets from './Pets';
 
 const LogIn = (props) => {
 
@@ -13,13 +11,14 @@ const handleSubmit = async (e) =>{
   e.preventDefault();
   console.log(userRef,passRef);
 
-  const response = await axios.post('http://localhost:8080/auth/signin', {
+  const response = await axios.post('http://localhost:9090/auth/signin', {
     usernameOrEmail: userRef.current.value,
       password: passRef.current.value,
     })
     .then((res)=>{
 
       localStorage.setItem('token',res.data.password)
+      localStorage.setItem('custId',res.data.customerId)
      
     })
   props.history.replace('/pets')
